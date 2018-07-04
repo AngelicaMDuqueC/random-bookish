@@ -1,0 +1,13 @@
+{
+  "name": "vanilla-shoppingcar",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "npm run start:dev",
+    "start:dev": "webpack-dev-server --config webpack.development.config.js"
+  },
+  "author": "",
+  "license": "MIT"
+}
