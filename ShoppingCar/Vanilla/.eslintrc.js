@@ -1,4 +1,4 @@
-const path = require('path');
+const path = require('path')
 // ESLint configuration
 // http://eslint.org/docs/user-guide/configuring
 module.exports = {
@@ -63,5 +63,6 @@ module.exports = {
         ],
       },
     ],
+    semi: ['error', 'never'],
   },
-};
+}

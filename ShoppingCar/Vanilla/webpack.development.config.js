@@ -1,10 +1,10 @@
-const webpack = require('webpack');
-const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const DashboardPlugin = require('webpack-dashboard/plugin');
-const rxPaths = require('rxjs/_esm5/path-mapping');
+const webpack = require('webpack')
+const path = require('path')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+const DashboardPlugin = require('webpack-dashboard/plugin')
+const rxPaths = require('rxjs/_esm5/path-mapping')
 
-var config = {
+const config = {
   mode: 'development',
   devtool: 'cheap-eval-source-map',
   context: path.resolve('./src'),
@@ -15,8 +15,8 @@ var config = {
     path: path.resolve('./dist'),
     filename: '[name].bundle.js',
     sourceMapFilename: '[name].map',
-    devtoolModuleFilenameTemplate: function(info) {
-      return 'file:///' + info.absoluteResourcePath;
+    devtoolModuleFilenameTemplate(info) {
+      return `file:///${info.absoluteResourcePath}`
     },
   },
   module: {
@@ -80,7 +80,7 @@ var config = {
     compress: true,
     port: 9000,
   },
-};
+}
 
 // webpack.development.config.js
-module.exports = config;
+module.exports = config
