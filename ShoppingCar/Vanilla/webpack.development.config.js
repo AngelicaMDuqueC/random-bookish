@@ -7,7 +7,7 @@ const rxPaths = require('rxjs/_esm5/path-mapping')
 const config = {
   mode: 'development',
   devtool: 'cheap-eval-source-map',
-  context: path.resolve('./src'),
+  context: path.resolve('./app'),
   entry: {
     app: './index.js',
   },
@@ -25,23 +25,32 @@ const config = {
         enforce: 'pre',
         test: /\.js$|\.jsx$/,
         exclude: ['node_modules'],
-        loader: 'babel-loader',
-        options: {
-          presets: [
-            [
-              'env',
-              { targets: { browsers: ['last 2 versions', 'safari >= 7'] } },
+        use: {
+          loader: 'babel-loader',
+          options: {
+            presets: [
+              [
+                'env',
+                { targets: { browsers: ['last 2 versions', 'safari >= 7'] } },
+              ],
+              ['react'],
             ],
-            ['react'],
-          ],
+          },
         },
       },
-      { test: /\.css$/, loaders: ['style', 'css'] },
+      {
+        test: /\.scss$|\.css$/,
+        use: [
+          { loader: 'style-loader' },
+          { loader: 'css-loader' },
+          { loader: 'sass-loader' },
+        ],
+      },
     ],
   },
   resolve: {
     extensions: ['.js'],
-    modules: [path.resolve('./src'), 'node_modules'],
+    modules: [path.resolve('./app'), 'node_modules'],
     alias: rxPaths(),
   },
   optimization: {
