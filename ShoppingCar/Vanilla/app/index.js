@@ -1,14 +1,19 @@
-import './scss/base.scss'
-import style from './scss/test.scss'
+import createHistory from 'history/createBrowserHistory'
+import router from './routes/router'
 
-import Message from './components/Message/Message'
+const history = createHistory()
 
-const h1 = document.createElement('h1')
-h1.innerHTML = 'Hello Vanilla Shopping Car'
-h1.className = style.heading
+const mainRouter = document.createElement('div')
+document.body.appendChild(mainRouter)
 
-const div = document.createElement('div')
-div.innerHTML = Message('Hola mundo')
+history.listen(location => {
+  router.resolve({ pathname: location.pathname }).then(({ component }) => {
+    mainRouter.innerHTML = component({ message: 'hola from listener router' })
+  })
+})
 
-document.body.appendChild(h1)
-document.body.appendChild(div)
+router
+  .resolve({ pathname: history.location.pathname })
+  .then(({ component }) => {
+    mainRouter.innerHTML = component({ message: 'hola first time router' })
+  })
