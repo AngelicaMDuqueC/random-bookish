@@ -1,3 +1,4 @@
+@import 'variables';
 @import 'normalizer';
 
 html {
@@ -6,5 +7,5 @@ html {
 }
 
 body {
-  background-color: #efefef;
+  background-color: $color-body;
 }

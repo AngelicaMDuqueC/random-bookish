@@ -29,10 +29,7 @@ const config = {
           loader: 'babel-loader',
           options: {
             presets: [
-              [
-                'env',
-                { targets: { browsers: ['last 2 versions', 'safari >= 7'] } },
-              ],
+              ['env', { targets: { browsers: ['last 2 versions'] } }],
               ['react'],
             ],
           },
