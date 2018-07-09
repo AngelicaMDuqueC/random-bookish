@@ -9,7 +9,7 @@ const config = {
   devtool: 'cheap-eval-source-map',
   context: path.resolve('./app'),
   entry: {
-    app: './index.js',
+    app: './client.js',
   },
   output: {
     path: path.resolve('./dist'),

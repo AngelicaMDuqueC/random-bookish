@@ -5,9 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "npm run start:dev",
-    "start:dev": "webpack-dev-server --config webpack.development.config.js",
-    "start:server": "webpack --watch --config webpack.development.config.js & node ./app/server.js"
+    "start": "concurrently --kill-others \"npm run start:dev\" \"npm run start:server\"",
+    "start:dev": "webpack --watch --config webpack.development.config.js",
+    "start:server": "nodemon ./app/server.js"
   },
   "author": "",
   "license": "MIT"
